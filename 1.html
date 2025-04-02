@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LanFile - 现代化局域网文件传输解决方案</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 自定义样式 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-primary {
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+        }
+
+        .focus-gradient:focus {
+            border-color: transparent;
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.45);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="#" class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold text-indigo-600">LanFile</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-700 hover:text-indigo-600 transition">特性</a>
+                    <a href="#implemented" class="text-gray-700 hover:text-indigo-600 transition">已实现功能</a>
+                    <a href="#upcoming" class="text-gray-700 hover:text-indigo-600 transition">计划中的功能</a>
+                    <a href="#download"
+                        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition btn-primary">下载</a>
+                </div>
+                <div class="flex md:hidden items-center">
+                    <button id="mobile-menu-button" class="text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- 移动端菜单 -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#features"
+                    class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">特性</a>
+                <a href="#implemented"
+                    class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">已实现功能</a>
+                <a href="#upcoming"
+                    class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">计划中的功能</a>
+                <a href="#download" class="block px-3 py-2 bg-indigo-600 text-white rounded-md">下载</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <section class="pt-20 hero-gradient text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">现代化的局域网文件传输解决方案</h1>
+                    <p class="text-xl mb-8 text-indigo-100">基于 Electron 和 React 构建，快速、安全、便捷地传输您的文件</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#download"
+                            class="bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium btn-primary">立即下载</a>
+                        <a href="#features"
+                            class="border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-700 transition">了解更多</a>
+                    </div>
+                </div>
+                <div class="flex justify-center">
+                    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=800"
+                        alt="LanFile 应用界面" class="rounded-lg shadow-2xl max-w-full h-auto" />
+                </div>
+            </div>
+        </div>
+        <div class="h-16 bg-white" style="clip-path: ellipse(75% 100% at 50% 100%);"></div>
+    </section>
+
+    <!-- 特性部分 -->
+    <section id="features" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">✨ 主要特性</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">LanFile 提供了一系列强大的功能，让文件传输更加简单高效</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 特性卡片 -->
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-wifi text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">智能设备发现</h3>
+                    <p class="text-gray-600">自动检测并连接局域网内的设备，无需复杂设置</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-file-export text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">文件传输</h3>
+                    <p class="text-gray-600">支持拖拽上传和快速下载，简化操作流程</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-chart-line text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">实时状态监控</h3>
+                    <p class="text-gray-600">显示传输进度、速度和状态，掌握传输情况</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-bell text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">通知系统</h3>
+                    <p class="text-gray-600">传输完成自动通知，不会错过任何重要事件</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-bolt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">高效传输</h3>
+                    <p class="text-gray-600">采用点对点传输技术，速度更快，效率更高</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-laptop text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">全平台支持</h3>
+                    <p class="text-gray-600">完整支持 Windows，计划支持 macOS 和 Linux</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-paint-brush text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">精美界面</h3>
+                    <p class="text-gray-600">现代化 UI 设计，支持多种主题，美观实用</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-600 mb-4">
+                        <i class="fas fa-users text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">多设备连接</h3>
+                    <p class="text-gray-600">同时连接多个设备，方便团队协作和文件共享</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 已实现功能部分 -->
+    <section id="implemented" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">已实现功能</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">目前 LanFile 已经实现了以下核心功能</p>
+            </div>
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="p-12">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">局域网自动设备发现</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">文件拖拽上传与下载</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">实时传输进度和速度显示</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">传输完成通知系统</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">文件传输分块大小设置</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">多文件队列传输</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
+                                <span class="text-lg">传输历史与状态管理</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-indigo-600 flex items-center justify-center py-10 px-4">
+                        <img src="../lanfile.github.io/assets/微信图片_20250401181033.png" alt="界面展示"
+                            class="rounded-lg shadow-lg max-w-full h-auto cursor-pointer hover:opacity-90 transition"
+                            id="previewImage" onclick="openImageModal(this.src)" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 计划中的功能 -->
+    <section id="upcoming" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">🚀 计划中的功能</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">我们正在努力开发以下功能，让 LanFile 变得更强大</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- 计划功能卡片 -->
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-mobile-alt text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">移动设备支持</h3>
+                    <p class="text-gray-600">支持 iOS 和 Android 设备，随时随地传输文件</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-lock text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">加密传输</h3>
+                    <p class="text-gray-600">端到端加密保护您的文件安全，防止未授权访问</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-sync text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">断点续传</h3>
+                    <p class="text-gray-600">支持从中断处继续传输，无需重新开始</p>
+                </div>
+
+                <div
+                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
+                    <div class="text-indigo-500 mb-4">
+                        <i class="fas fa-chart-bar text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">传输统计和分析</h3>
+                    <p class="text-gray-600">提供详细的传输数据分析，帮助优化使用体验</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 下载区域 -->
+    <section id="download" class="py-20 bg-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">立即开始使用 LanFile</h2>
+                <p class="text-xl text-indigo-200 max-w-3xl mx-auto">下载应用程序，体验快速、便捷的局域网文件传输</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="bg-indigo-800 p-8 rounded-xl text-center hover:bg-indigo-700 transition cursor-pointer">
+                    <div class="text-5xl mb-4"><i class="fab fa-windows"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Windows</h3>
+                    <p class="text-indigo-200 mb-4">适用于 Windows 10 及以上版本</p>
+                    <a href="#"
+                        class="inline-block bg-white text-indigo-700 px-6 py-2 rounded-lg font-medium hover:bg-indigo-100 transition">下载
+                        .exe</a>
+                </div>
+
+                <div
+                    class="bg-indigo-800 p-8 rounded-xl text-center hover:bg-indigo-700 transition cursor-pointer opacity-75">
+                    <div class="text-5xl mb-4"><i class="fab fa-apple"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">macOS</h3>
+                    <p class="text-indigo-200 mb-4">即将推出，敬请期待</p>
+                    <span class="inline-block bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium">开发中</span>
+                </div>
+
+                <div
+                    class="bg-indigo-800 p-8 rounded-xl text-center hover:bg-indigo-700 transition cursor-pointer opacity-75">
+                    <div class="text-5xl mb-4"><i class="fab fa-linux"></i></div>
+                    <h3 class="text-xl font-semibold mb-2">Linux</h3>
+                    <p class="text-indigo-200 mb-4">即将推出，敬请期待</p>
+                    <span class="inline-block bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium">开发中</span>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <h3 class="text-2xl font-semibold mb-6">订阅获取更新消息</h3>
+                <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
+                    <input type="email" placeholder="您的邮箱地址"
+                        class="px-4 py-3 rounded-lg flex-1 text-gray-800 focus-gradient focus:outline-none" required>
+                    <button type="submit"
+                        class="bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium hover:bg-indigo-100 transition btn-primary">订阅</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 修改图片模态框 -->
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden">
+        <div class="relative max-w-5xl w-full mx-4">
+            <div class="absolute -top-12 right-0 flex space-x-4 text-white">
+                <button onclick="zoomIn()" class="text-2xl hover:text-gray-300" title="放大">
+                    <i class="fas fa-search-plus"></i>
+                </button>
+                <button onclick="zoomOut()" class="text-2xl hover:text-gray-300" title="缩小">
+                    <i class="fas fa-search-minus"></i>
+                </button>
+                <button onclick="resetZoom()" class="text-2xl hover:text-gray-300" title="重置大小">
+                    <i class="fas fa-redo"></i>
+                </button>
+                <button onclick="closeImageModal()" class="text-3xl hover:text-gray-300" title="关闭">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="overflow-auto" style="max-height: 90vh;">
+                <img id="modalImage" src="" alt="放大图片"
+                    class="w-full h-auto rounded-lg transition-transform duration-300"
+                    style="transform-origin: center;" />
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">LanFile</h3>
+                    <p class="text-gray-400">现代化的局域网文件传输解决方案，让文件共享变得简单</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">产品</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#features" class="hover:text-white transition">特性</a></li>
+                        <li><a href="#download" class="hover:text-white transition">下载</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">资源</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">文档</a></li>
+                        <li><a href="#" class="hover:text-white transition">教程</a></li>
+                        <li><a href="#" class="hover:text-white transition">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">联系我们</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="https://github.com/yangyuan-zhen/LanFile"
+                                class="hover:text-white transition">GitHub</a></li>
+                        <li><a href="https://x.com/ghostJRS" class="hover:text-white transition">Twitter</a></li>
+                        <li><a href="#" class="hover:text-white transition">邮件</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2025 LanFile. 保留所有权利。</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="https://github.com/yangyuan-zhen/LanFile"
+                        class="text-gray-400 hover:text-white transition"><i class="fab fa-github text-xl"></i></a>
+                    <a href="https://x.com/ghostJRS" class="text-gray-400 hover:text-white transition"><i
+                            class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i
+                            class="fab fa-discord text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('mobile-menu-button').addEventListener('click', function () {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // 如果是移动端菜单，点击后关闭菜单
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+
+        // 图片缩放变量
+        let currentZoom = 1;
+        const zoomStep = 0.2;
+        const minZoom = 0.5;
+        const maxZoom = 3;
+
+        // 放大图片
+        function zoomIn() {
+            if (currentZoom < maxZoom) {
+                currentZoom += zoomStep;
+                applyZoom();
+            }
+        }
+
+        // 缩小图片
+        function zoomOut() {
+            if (currentZoom > minZoom) {
+                currentZoom -= zoomStep;
+                applyZoom();
+            }
+        }
+
+        // 重置图片大小
+        function resetZoom() {
+            currentZoom = 1;
+            applyZoom();
+        }
+
+        // 应用缩放
+        function applyZoom() {
+            const img = document.getElementById('modalImage');
+            img.style.transform = `scale(${currentZoom})`;
+        }
+
+        // 修改openImageModal函数，重置缩放
+        function openImageModal(imgSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modalImg.src = imgSrc;
+            modal.classList.remove('hidden');
+            // 重置缩放
+            currentZoom = 1;
+            applyZoom();
+            // 禁止背景滚动
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 添加鼠标滚轮缩放支持
+        document.getElementById('modalImage').addEventListener('wheel', function (e) {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                zoomIn();
+            } else {
+                zoomOut();
+            }
+        });
+
+        function closeImageModal() {
+            document.getElementById('imageModal').classList.add('hidden');
+            // 恢复背景滚动
+            document.body.style.overflow = 'auto';
+        }
+
+        // 点击模态框背景关闭
+        document.getElementById('imageModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeImageModal();
+            }
+        });
+
+        // ESC 键关闭模态框
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !document.getElementById('imageModal').classList.contains('hidden')) {
+                closeImageModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
