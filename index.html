@@ -6,6 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LanFile - 现代化局域网文件传输解决方案</title>
 
+    <!-- 添加Google字体 - 与Matsu主题一致 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&display=swap"
+        rel="stylesheet">
+
     <!-- 添加网页图标 -->
     <link rel="icon" href="assets/lanfile.png" type="image/x-icon">
     <!-- 适配Apple设备 -->
@@ -13,88 +20,231 @@
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 配置Tailwind自定义主题 - 使用Matsu主题的准确颜色 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        matsu: {
+                            background: '#f5f2eb',
+                            paper: '#fffaf0',
+                            border: '#d3cbbe',
+                            primary: '#5c8374',
+                            secondary: '#92a89d',
+                            text: '#3a3a3a',
+                            subtle: '#8a8883'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                        display: ['"PT Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'lg': '0.75rem',
+                        'xl': '1rem'
+                    }
+                }
+            }
+        }
+    </script>
     <!-- Font Awesome 图标 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 自定义样式 -->
+    <!-- 自定义样式 - 更精确地实现Matsu主题效果 -->
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Nunito', sans-serif;
+            background-color: #f5f2eb;
+            color: #3a3a3a;
         }
 
-        .hero-gradient {
-            background: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'PT Sans', sans-serif;
         }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        /* 吉卜力风格纹理背景 - 与Matsu主题一致 */
+        .texture {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background-image: url("data:image/png;base64,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");
+            opacity: 0.15;
         }
 
-        .btn-primary {
+        /* 吉卜力风格纸张效果 */
+        .paper {
+            background-color: #fffaf0;
+            border: 1px solid #d3cbbe;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        /* 吉卜力风格按钮 */
+        .btn-ghibli {
+            background-color: #5c8374;
+            color: white;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            border: 2px solid transparent;
+            transition: all 0.2s ease-in-out;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(92, 131, 116, 0.25);
+        }
+
+        .btn-ghibli:hover {
+            background-color: #4a6b5d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(92, 131, 116, 0.3);
+        }
+
+        .btn-ghibli-outline {
+            background-color: transparent;
+            color: #5c8374;
+            border: 2px solid #5c8374;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .btn-ghibli-outline:hover {
+            background-color: #5c8374;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(92, 131, 116, 0.2);
+        }
+
+        /* 吉卜力风格卡片 */
+        .card-ghibli {
+            background-color: #fffaf0;
+            border: 1px solid #d3cbbe;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
+            overflow: hidden;
         }
 
-        .btn-primary:hover {
-            transform: scale(1.05);
+        .card-ghibli:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
         }
 
-        .focus-gradient:focus {
-            border-color: transparent;
-            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.45);
+        /* 修改渐变色为Matsu主题风格 */
+        .hero-gradient {
+            background: linear-gradient(135deg, #5c8374 0%, #6b9080 100%);
+        }
+
+        /* 表单输入框 */
+        .input-ghibli {
+            background-color: #fffaf0;
+            border: 1px solid #d3cbbe;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            transition: all 0.2s;
+        }
+
+        .input-ghibli:focus {
+            outline: none;
+            border-color: #5c8374;
+            box-shadow: 0 0 0 3px rgba(92, 131, 116, 0.2);
+        }
+
+        /* 吉卜力风格的导航栏 */
+        .nav-ghibli {
+            background-color: rgba(255, 250, 240, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid #d3cbbe;
+        }
+
+        /* 装饰元素 */
+        .dots-pattern {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background-image: radial-gradient(#3a3a3a 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            z-index: -1;
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-matsu-background text-matsu-text">
+    <!-- 添加纹理背景 -->
+    <div class="texture"></div>
+
     <!-- 导航栏 -->
-    <nav class="bg-white shadow-sm fixed w-full z-10">
+    <nav class="nav-ghibli fixed w-full z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
                     <a href="#" class="flex-shrink-0 flex items-center">
-                        <span class="text-2xl font-bold text-indigo-600">LanFile</span>
+                        <img src="assets/lanfile.png" alt="LanFile Logo" class="h-8 w-8 mr-2">
+                        <span class="text-2xl font-bold text-matsu-primary">LanFile</span>
                     </a>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="#features" class="text-gray-700 hover:text-indigo-600 transition">特性</a>
-                    <a href="#implemented" class="text-gray-700 hover:text-indigo-600 transition">已实现功能</a>
-                    <a href="#upcoming" class="text-gray-700 hover:text-indigo-600 transition">计划中的功能</a>
-                    <a href="#download"
-                        class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition btn-primary">下载</a>
+                    <a href="#features" class="text-matsu-text hover:text-matsu-primary transition">特性</a>
+                    <a href="#implemented" class="text-matsu-text hover:text-matsu-primary transition">已实现功能</a>
+                    <a href="#upcoming" class="text-matsu-text hover:text-matsu-primary transition">计划中的功能</a>
+                    <a href="#download" class="btn-ghibli">下载</a>
                 </div>
                 <div class="flex md:hidden items-center">
-                    <button id="mobile-menu-button" class="text-gray-700">
+                    <button id="mobile-menu-button" class="text-matsu-text">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
         <!-- 移动端菜单 -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg absolute w-full">
+        <div id="mobile-menu" class="hidden md:hidden bg-matsu-paper shadow-lg absolute w-full">
             <div class="px-2 pt-2 pb-3 space-y-1">
                 <a href="#features"
-                    class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">特性</a>
+                    class="block px-3 py-2 text-matsu-text hover:bg-matsu-background hover:text-matsu-primary rounded-md">特性</a>
                 <a href="#implemented"
-                    class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">已实现功能</a>
+                    class="block px-3 py-2 text-matsu-text hover:bg-matsu-background hover:text-matsu-primary rounded-md">已实现功能</a>
                 <a href="#upcoming"
-                    class="block px-3 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 rounded-md">计划中的功能</a>
-                <a href="#download" class="block px-3 py-2 bg-indigo-600 text-white rounded-md">下载</a>
+                    class="block px-3 py-2 text-matsu-text hover:bg-matsu-background hover:text-matsu-primary rounded-md">计划中的功能</a>
+                <a href="#download" class="block px-3 py-2 bg-matsu-primary text-white rounded-md">下载</a>
             </div>
         </div>
     </nav>
 
     <!-- 英雄区域 -->
     <section class="pt-20 hero-gradient text-white">
+        <!-- 添加一些手绘风格的装饰元素 -->
+        <div class="absolute right-0 top-20 w-32 h-32 opacity-10">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <path d="M30,1h40l29,29v40l-29,29h-40l-29-29v-40z" stroke="white" fill="none" stroke-width="3" />
+            </svg>
+        </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
                     <h1 class="text-4xl md:text-5xl font-bold mb-6">现代化的局域网文件传输解决方案</h1>
                     <p class="text-xl mb-8 text-indigo-100">基于 Electron 和 React 构建，快速、安全、便捷地传输您的文件</p>
                     <div class="flex flex-wrap gap-4">
-                        <a href="#download"
-                            class="bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium btn-primary">立即下载</a>
+                        <a href="#download" class="btn-ghibli px-6 py-3 rounded-lg font-medium">立即下载</a>
                         <a href="#features"
                             class="border border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-indigo-700 transition">了解更多</a>
                     </div>
@@ -109,7 +259,7 @@
     </section>
 
     <!-- 特性部分 -->
-    <section id="features" class="py-20 bg-white">
+    <section id="features" class="py-20 bg-matsu-paper">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">✨ 主要特性</h2>
@@ -117,76 +267,68 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- 特性卡片 -->
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-wifi text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">智能设备发现</h3>
-                    <p class="text-gray-600">自动检测并连接局域网内的设备，无需复杂设置</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">智能设备发现</h3>
+                    <p class="text-matsu-subtle">自动检测并连接局域网内的设备，无需复杂设置</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-file-export text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">文件传输</h3>
-                    <p class="text-gray-600">支持拖拽上传和快速下载，简化操作流程</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">文件传输</h3>
+                    <p class="text-matsu-subtle">支持拖拽上传和快速下载，简化操作流程</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-chart-line text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">实时状态监控</h3>
-                    <p class="text-gray-600">显示传输进度、速度和状态，掌握传输情况</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">实时状态监控</h3>
+                    <p class="text-matsu-subtle">显示传输进度、速度和状态，掌握传输情况</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-bell text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">通知系统</h3>
-                    <p class="text-gray-600">传输完成自动通知，不会错过任何重要事件</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">通知系统</h3>
+                    <p class="text-matsu-subtle">传输完成自动通知，不会错过任何重要事件</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-bolt text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">高效传输</h3>
-                    <p class="text-gray-600">采用点对点传输技术，速度更快，效率更高</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">高效传输</h3>
+                    <p class="text-matsu-subtle">采用点对点传输技术，速度更快，效率更高</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-laptop text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">全平台支持</h3>
-                    <p class="text-gray-600">完整支持 Windows，计划支持 macOS 和 Linux</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">全平台支持</h3>
+                    <p class="text-matsu-subtle">完整支持 Windows，计划支持 macOS 和 Linux</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-paint-brush text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">精美界面</h3>
-                    <p class="text-gray-600">现代化 UI 设计，支持多种主题，美观实用</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">精美界面</h3>
+                    <p class="text-matsu-subtle">现代化 UI 设计，支持多种主题，美观实用</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-600 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-users text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">多设备连接</h3>
-                    <p class="text-gray-600">同时连接多个设备，方便团队协作和文件共享</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">多设备连接</h3>
+                    <p class="text-matsu-subtle">同时连接多个设备，方便团队协作和文件共享</p>
                 </div>
             </div>
         </div>
@@ -252,47 +394,43 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- 计划功能卡片 -->
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-500 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-mobile-alt text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">移动设备支持</h3>
-                    <p class="text-gray-600">支持 iOS 和 Android 设备，随时随地传输文件</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">移动设备支持</h3>
+                    <p class="text-matsu-subtle">支持 iOS 和 Android 设备，随时随地传输文件</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-500 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-lock text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">加密传输</h3>
-                    <p class="text-gray-600">端到端加密保护您的文件安全，防止未授权访问</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">加密传输</h3>
+                    <p class="text-matsu-subtle">端到端加密保护您的文件安全，防止未授权访问</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-500 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-sync text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">断点续传</h3>
-                    <p class="text-gray-600">支持从中断处继续传输，无需重新开始</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">断点续传</h3>
+                    <p class="text-matsu-subtle">支持从中断处继续传输，无需重新开始</p>
                 </div>
 
-                <div
-                    class="feature-card bg-white p-6 rounded-xl shadow-md transition duration-300 border border-gray-100">
-                    <div class="text-indigo-500 mb-4">
+                <div class="card-ghibli p-6">
+                    <div class="text-matsu-primary mb-4">
                         <i class="fas fa-chart-bar text-3xl"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-2">传输统计和分析</h3>
-                    <p class="text-gray-600">提供详细的传输数据分析，帮助优化使用体验</p>
+                    <h3 class="text-xl font-semibold mb-2 font-display">传输统计和分析</h3>
+                    <p class="text-matsu-subtle">提供详细的传输数据分析，帮助优化使用体验</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- 下载区域 -->
-    <section id="download" class="py-20 bg-indigo-900 text-white">
+    <section id="download" class="py-20 bg-matsu-primary text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">立即开始使用 LanFile</h2>
@@ -363,7 +501,7 @@
     </div>
 
     <!-- 页脚 -->
-    <footer class="bg-gray-900 text-white py-12">
+    <footer class="bg-[#3a3a3a] text-white py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
@@ -516,6 +654,9 @@
             }
         });
     </script>
+</body>
+
+</html>
 </body>
 
 </html>
