@@ -334,49 +334,77 @@
     </section>
 
     <!-- 已实现功能部分 -->
-    <section id="implemented" class="py-20 bg-gray-50">
+    <section id="implemented" class="py-20 bg-matsu-paper">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">已实现功能</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">目前 LanFile 已经实现了以下核心功能</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-matsu-text">已实现功能</h2>
+                <p class="text-xl text-matsu-subtle max-w-3xl mx-auto">目前 LanFile 已经实现了以下核心功能</p>
             </div>
-            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+            <div class="card-ghibli overflow-hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2">
                     <div class="p-12">
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">局域网自动设备发现</span>
+                        <ul class="space-y-6">
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">局域网自动设备发现</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">文件拖拽上传与下载</span>
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">文件拖拽上传与下载</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">实时传输进度和速度显示</span>
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">实时传输进度和速度显示</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">传输完成通知系统</span>
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">传输完成通知系统</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">文件传输分块大小设置</span>
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">文件传输分块大小设置</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">多文件队列传输</span>
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">多文件队列传输</span>
                             </li>
-                            <li class="flex items-start">
-                                <span class="text-green-500 mr-3"><i class="fas fa-check-circle text-xl"></i></span>
-                                <span class="text-lg">传输历史与状态管理</span>
+                            <li class="flex items-start group">
+                                <span
+                                    class="text-matsu-primary mr-4 transform group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-check-circle text-2xl"></i>
+                                </span>
+                                <span
+                                    class="text-lg text-matsu-text group-hover:text-matsu-primary transition-colors">传输历史与状态管理</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-indigo-600 flex items-center justify-center py-10 px-4">
+                    <div class="bg-matsu-primary bg-opacity-10 flex items-center justify-center py-10 px-4">
                         <img src="assets/微信图片_20250401181033.png" alt="界面展示"
-                            class="rounded-lg shadow-lg max-w-full h-auto cursor-pointer hover:opacity-90 transition"
+                            class="rounded-lg shadow-lg max-w-full h-auto cursor-pointer hover:opacity-90 transition transform hover:scale-105 duration-300"
                             id="previewImage" onclick="openImageModal(this.src)" />
                     </div>
                 </div>
@@ -429,46 +457,43 @@
     </section>
 
     <!-- 下载区域 -->
-    <section id="download" class="py-20 bg-matsu-primary text-white">
+    <section id="download" class="py-20 bg-matsu-paper">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">立即开始使用 LanFile</h2>
-                <p class="text-xl text-indigo-200 max-w-3xl mx-auto">下载应用程序，体验快速、便捷的局域网文件传输</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-matsu-text">立即开始使用 LanFile</h2>
+                <p class="text-xl text-matsu-subtle max-w-3xl mx-auto">下载应用程序，体验快速、便捷的局域网文件传输</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                <div class="bg-indigo-800 p-8 rounded-xl text-center hover:bg-indigo-700 transition cursor-pointer">
-                    <div class="text-5xl mb-4"><i class="fab fa-windows"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">Windows</h3>
-                    <p class="text-indigo-200 mb-4">适用于 Windows 10 及以上版本</p>
-                    <a href="#"
-                        class="inline-block bg-white text-indigo-700 px-6 py-2 rounded-lg font-medium hover:bg-indigo-100 transition">下载
-                        .exe</a>
+                <div
+                    class="card-ghibli p-8 text-center hover:transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="text-5xl mb-4 text-matsu-primary"><i class="fab fa-windows"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-matsu-text">Windows</h3>
+                    <p class="text-matsu-subtle mb-4">适用于 Windows 10 及以上版本</p>
+                    <a href="#" class="btn-ghibli inline-block">下载 .exe</a>
                 </div>
 
                 <div
-                    class="bg-indigo-800 p-8 rounded-xl text-center hover:bg-indigo-700 transition cursor-pointer opacity-75">
-                    <div class="text-5xl mb-4"><i class="fab fa-apple"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">macOS</h3>
-                    <p class="text-indigo-200 mb-4">即将推出，敬请期待</p>
-                    <span class="inline-block bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium">开发中</span>
+                    class="card-ghibli p-8 text-center hover:transform hover:-translate-y-2 transition-all duration-300 opacity-75">
+                    <div class="text-5xl mb-4 text-matsu-primary"><i class="fab fa-apple"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-matsu-text">macOS</h3>
+                    <p class="text-matsu-subtle mb-4">即将推出，敬请期待</p>
+                    <span class="btn-ghibli-outline inline-block">开发中</span>
                 </div>
 
                 <div
-                    class="bg-indigo-800 p-8 rounded-xl text-center hover:bg-indigo-700 transition cursor-pointer opacity-75">
-                    <div class="text-5xl mb-4"><i class="fab fa-linux"></i></div>
-                    <h3 class="text-xl font-semibold mb-2">Linux</h3>
-                    <p class="text-indigo-200 mb-4">即将推出，敬请期待</p>
-                    <span class="inline-block bg-indigo-700 text-white px-6 py-2 rounded-lg font-medium">开发中</span>
+                    class="card-ghibli p-8 text-center hover:transform hover:-translate-y-2 transition-all duration-300 opacity-75">
+                    <div class="text-5xl mb-4 text-matsu-primary"><i class="fab fa-linux"></i></div>
+                    <h3 class="text-xl font-semibold mb-2 text-matsu-text">Linux</h3>
+                    <p class="text-matsu-subtle mb-4">即将推出，敬请期待</p>
+                    <span class="btn-ghibli-outline inline-block">开发中</span>
                 </div>
             </div>
 
             <div class="mt-16 text-center">
-                <h3 class="text-2xl font-semibold mb-6">订阅获取更新消息</h3>
+                <h3 class="text-2xl font-semibold mb-6 text-matsu-text">订阅获取更新消息</h3>
                 <form class="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
-                    <input type="email" placeholder="您的邮箱地址"
-                        class="px-4 py-3 rounded-lg flex-1 text-gray-800 focus-gradient focus:outline-none" required>
-                    <button type="submit"
-                        class="bg-white text-indigo-700 px-6 py-3 rounded-lg font-medium hover:bg-indigo-100 transition btn-primary">订阅</button>
+                    <input type="email" placeholder="您的邮箱地址" class="input-ghibli flex-1" required>
+                    <button type="submit" class="btn-ghibli">订阅</button>
                 </form>
             </div>
         </div>
@@ -653,9 +678,6 @@
             }
         });
     </script>
-</body>
-
-</html>
 </body>
 
 </html>
